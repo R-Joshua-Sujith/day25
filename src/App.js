@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import Chart from "./components/Chart";
+import Cards from "./components/Cards";
+import PieChart from "./components/PieChart"
+import { UserData } from "./Data";
+import { Dashboard } from "./Data2";
+import { useState } from "react";
+import './components/Cards.css'
+
+
 
 function App() {
+  const [data, setData] = useState(UserData)
+  const [data2, setData2] = useState(Dashboard);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Cards data={data2} />
+      <div className="charts">
+        <Chart data={data} />
+        <PieChart data={data} />
+      </div>
+
     </div>
   );
 }
